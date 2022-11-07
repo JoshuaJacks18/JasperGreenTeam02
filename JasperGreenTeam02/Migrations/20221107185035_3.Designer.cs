@@ -4,14 +4,16 @@ using JasperGreenTeam02.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JasperGreenTeam02.Migrations
 {
     [DbContext(typeof(JasperGreenContext))]
-    partial class JasperGreenContextModelSnapshot : ModelSnapshot
+    [Migration("20221107185035_3")]
+    partial class _3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -74,7 +74,7 @@ namespace JasperGreenTeam02.Models
                     PropertyID = 1,
                     CustomerID = 1,
                     PropertyAddress = "123 Main St",
-                    PropertyCity ="College Station",
+                    PropertyCity = "College Station",
                     PropertyState = "TX",
                     PropertyZIP = "77480"
                 },
@@ -160,6 +160,14 @@ namespace JasperGreenTeam02.Models
                     PropertyZIP = "77480"
                 }
                 );
+            modelBuilder.Entity<Payment>().HasData(
+                new Payment
+                {
+                    PaymentID = 1,
+                    CustomerID = 1,
+                    PaymentAmount = 0.0
+                }
+            );
         }
     }
 }
