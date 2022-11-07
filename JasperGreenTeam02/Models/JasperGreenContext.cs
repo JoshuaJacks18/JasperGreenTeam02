@@ -127,6 +127,7 @@ namespace JasperGreenTeam02.Models
                 {
                     PropertyID = 1,
                     CustomerID = 1,
+                    ServiceFee = 100.0,
                     PropertyAddress = "123 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
@@ -136,6 +137,7 @@ namespace JasperGreenTeam02.Models
                 {
                     PropertyID = 2,
                     CustomerID = 1,
+                    ServiceFee = 100.0,
                     PropertyAddress = "123 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
@@ -145,6 +147,7 @@ namespace JasperGreenTeam02.Models
                 {
                     PropertyID = 3,
                     CustomerID = 2,
+                    ServiceFee = 100.0,
                     PropertyAddress = "123 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
@@ -154,6 +157,7 @@ namespace JasperGreenTeam02.Models
                 {
                     PropertyID = 4,
                     CustomerID = 2,
+                    ServiceFee = 100.0,
                     PropertyAddress = "123 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
@@ -163,6 +167,7 @@ namespace JasperGreenTeam02.Models
                 {
                     PropertyID = 5,
                     CustomerID = 3,
+                    ServiceFee = 100.0,
                     PropertyAddress = "123 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
@@ -172,6 +177,7 @@ namespace JasperGreenTeam02.Models
                 {
                     PropertyID = 6,
                     CustomerID = 3,
+                    ServiceFee = 100.0,
                     PropertyAddress = "123 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
@@ -181,6 +187,7 @@ namespace JasperGreenTeam02.Models
                 {
                     PropertyID = 7,
                     CustomerID = 4,
+                    ServiceFee = 100.0,
                     PropertyAddress = "123 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
@@ -190,6 +197,7 @@ namespace JasperGreenTeam02.Models
                 {
                     PropertyID = 8,
                     CustomerID = 4,
+                    ServiceFee = 100.0,
                     PropertyAddress = "123 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
@@ -199,6 +207,7 @@ namespace JasperGreenTeam02.Models
                 {
                     PropertyID = 9,
                     CustomerID = 5,
+                    ServiceFee = 100.0,
                     PropertyAddress = "123 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
@@ -208,6 +217,7 @@ namespace JasperGreenTeam02.Models
                 {
                     PropertyID = 10,
                     CustomerID = 5,
+                    ServiceFee = 100.0,
                     PropertyAddress = "123 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
@@ -220,35 +230,35 @@ namespace JasperGreenTeam02.Models
                     PaymentID = 1,
                     CustomerID = 1,
                     PaymentDate = DateTime.Now,
-                    PaymentAmount = 300.0
+                    PaymentAmount = 200.0
                 },
                 new Payment
                 {
                     PaymentID = 2,
                     CustomerID = 2,
                     PaymentDate = DateTime.Now,
-                    PaymentAmount = 300.0
+                    PaymentAmount = 200.0
                 },
                 new Payment
                 {
                     PaymentID = 3,
                     CustomerID = 3,
                     PaymentDate = DateTime.Now,
-                    PaymentAmount = 300.0
+                    PaymentAmount = 200.0
                 },
                 new Payment
                 {
                     PaymentID = 4,
                     CustomerID = 4,
                     PaymentDate = DateTime.Now,
-                    PaymentAmount = 300.0
+                    PaymentAmount = 200.0
                 },
                 new Payment
                 {
                     PaymentID = 5,
                     CustomerID = 5,
                     PaymentDate = DateTime.Now,
-                    PaymentAmount = 300.0
+                    PaymentAmount = 200.0
                 }
             );
             modelBuilder.Entity<Employee>().HasData(
@@ -281,6 +291,126 @@ namespace JasperGreenTeam02.Models
                     JobTitle = "Worker",
                     HireDate = DateTime.Now,
                     HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 4,
+                    EmployeeFirstName = "Josh",
+                    EmployeeLastName = "Jacks",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 5,
+                    EmployeeFirstName = "John",
+                    EmployeeLastName = "Baptist",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 6,
+                    EmployeeFirstName = "Jimmy",
+                    EmployeeLastName = "Neutron",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 7,
+                    EmployeeFirstName = "Timmy",
+                    EmployeeLastName = "Turner",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 8,
+                    EmployeeFirstName = "Shawn",
+                    EmployeeLastName = "Young",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 9,
+                    EmployeeFirstName = "Sean",
+                    EmployeeLastName = "Price",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 10,
+                    EmployeeFirstName = "Tyler",
+                    EmployeeLastName = "Thames",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 11,
+                    EmployeeFirstName = "Spencer",
+                    EmployeeLastName = "Simons",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 12,
+                    EmployeeFirstName = "Greg",
+                    EmployeeLastName = "Williams",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 13,
+                    EmployeeFirstName = "Dameon",
+                    EmployeeLastName = "Walker",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 14,
+                    EmployeeFirstName = "James",
+                    EmployeeLastName = "Thomas",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 15,
+                    EmployeeFirstName = "Patrick",
+                    EmployeeLastName = "Star",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HireDate = DateTime.Now,
+                    HourlyRate = 10.5
                 }
             );
             modelBuilder.Entity<Crew>().HasData(
@@ -290,6 +420,34 @@ namespace JasperGreenTeam02.Models
                     CrewForemanID = 1,
                     CrewMember1ID = 2,
                     CrewMember2ID = 3
+                }, 
+                new Crew
+                {
+                    CrewID = 2,
+                    CrewForemanID = 4,
+                    CrewMember1ID = 5,
+                    CrewMember2ID = 6
+                },
+                new Crew
+                {
+                    CrewID = 3,
+                    CrewForemanID = 7,
+                    CrewMember1ID = 8,
+                    CrewMember2ID = 9
+                },
+                new Crew
+                {
+                    CrewID = 4,
+                    CrewForemanID = 10,
+                    CrewMember1ID = 11,
+                    CrewMember2ID = 12
+                },
+                new Crew
+                {
+                    CrewID = 5,
+                    CrewForemanID = 13,
+                    CrewMember1ID = 14,
+                    CrewMember2ID = 15
                 }
             );
             modelBuilder.Entity<ProvideService>().HasData(
@@ -299,8 +457,89 @@ namespace JasperGreenTeam02.Models
                     CrewID = 1,
                     CustomerID = 1,
                     PropertyID = 1,
-                    ServiceFee = 300.0,
+                    ServiceFee = 100.0,
                     PaymentID = 1
+                },
+                new ProvideService
+                {
+                    ServiceID = 2,
+                    CrewID = 1,
+                    CustomerID = 1,
+                    PropertyID = 2,
+                    ServiceFee = 100.0,
+                    PaymentID = 1
+                },
+                new ProvideService
+                {
+                    ServiceID = 3,
+                    CrewID = 2,
+                    CustomerID = 2,
+                    PropertyID = 3,
+                    ServiceFee = 100.0,
+                    PaymentID = 2
+                },
+                new ProvideService
+                {
+                    ServiceID = 4,
+                    CrewID = 2,
+                    CustomerID = 2,
+                    PropertyID = 4,
+                    ServiceFee = 100.0,
+                    PaymentID = 2
+                },
+                new ProvideService
+                {
+                    ServiceID = 5,
+                    CrewID = 3,
+                    CustomerID = 3,
+                    PropertyID = 5,
+                    ServiceFee = 100.0,
+                    PaymentID = 3
+                },
+                new ProvideService
+                {
+                    ServiceID = 6,
+                    CrewID = 3,
+                    CustomerID = 3,
+                    PropertyID = 6,
+                    ServiceFee = 100.0,
+                    PaymentID = 3
+                },
+                new ProvideService
+                {
+                    ServiceID = 7,
+                    CrewID = 4,
+                    CustomerID = 4,
+                    PropertyID = 7,
+                    ServiceFee = 100.0,
+                    PaymentID = 4
+                },
+                new ProvideService
+                {
+                    ServiceID = 8,
+                    CrewID = 4,
+                    CustomerID = 4,
+                    PropertyID = 8,
+                    ServiceFee = 100.0,
+                    PaymentID = 4
+                },
+                new ProvideService
+                {
+                    ServiceID = 9,
+                    CrewID = 5,
+                    CustomerID = 5,
+                    PropertyID = 9,
+                    ServiceFee = 100.0,
+                    PaymentID = 5
+                },
+                new ProvideService
+                {
+                    ServiceID = 10,
+                    CrewID = 5,
+                    CustomerID = 5,
+                    PropertyID = 10,
+                    ServiceFee = 100.0,
+                    PaymentID = 5
                 }
             );
 
