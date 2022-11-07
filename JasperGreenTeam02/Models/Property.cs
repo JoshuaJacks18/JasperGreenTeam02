@@ -22,7 +22,7 @@ namespace JasperGreenTeam02.Models
     {
         public int PropertyID { get; set; }
         [Required]
-        public int CustomerID { get; set; }
+        public int CustomerID { get; set; } //Foreign Key
         public Customer Customer { get; set; } //Navigation Property
         [Required]
         public string PropertyAddress { get; set; }

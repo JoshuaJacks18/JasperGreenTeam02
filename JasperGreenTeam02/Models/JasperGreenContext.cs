@@ -29,10 +29,12 @@ namespace JasperGreenTeam02.Models
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Crew> Crews { get; set; }
+        public DbSet<ProvideService> ProvideServices { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Relationship and Deletion Rules
+            //Relationship and Deletion Rules////////////////////////////////
 
 
             modelBuilder.Entity<Crew>()
@@ -82,7 +84,7 @@ namespace JasperGreenTeam02.Models
             ;
 
 
-            //Seed Data
+            //Seed Data/////////////////////////////////////////////////
             modelBuilder.Entity<Customer>().HasData(
                 new Customer
                 {

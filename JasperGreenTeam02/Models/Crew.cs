@@ -26,17 +26,17 @@ namespace JasperGreenTeam02.Models
         [ForeignKey("EmployeeID")]
         [InverseProperty("Crews")]
         [Required]
-        public int CrewForemanID { get; set; }
+        public int CrewForemanID { get; set; } //Foreign Key
 
         [Required]
         [ForeignKey("EmployeeID")]
-        public int CrewMember1ID { get; set; }
+        public int CrewMember1ID { get; set; } //Foreign Key
 
         [Required]
         [ForeignKey("EmployeeID")]
-        public int CrewMember2ID { get; set; }
-        
-        
+        public int CrewMember2ID { get; set; } //Foreign Key
+
+
         //Navigation Properties
         public Employee Foreman { get; set; }
         public Employee CrewMember1 { get; set; }

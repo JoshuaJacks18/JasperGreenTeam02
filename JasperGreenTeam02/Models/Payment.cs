@@ -23,8 +23,8 @@ namespace JasperGreenTeam02.Models
     {
         public int PaymentID { get; set; }
         [Required]
-        public int CustomerID { get; set; }
-        public Customer Customer { get; set; }
+        public int CustomerID { get; set; } //Foreign Key
+        public Customer Customer { get; set; } //Navigation Property
 
         [Required]
         public DateTime PaymentDate { get; set; }

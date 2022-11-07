@@ -22,16 +22,16 @@ namespace JasperGreenTeam02.Models
     {
         public int ServiceID { get; set; }
         [Required]
-        public int CrewID { get; set; }
+        public int CrewID { get; set; } //Foreign Key
         [Required]
-        public int CustomerID { get; set; }
+        public int CustomerID { get; set; } //Foreign Key
         [Required]
-        public int PropertyID { get; set; }
+        public int PropertyID { get; set; } //Foreign Key
         [Required]
         public DateTime ServiceDate { get; set; }
         [Required]
         public double ServiceFee { get; set; }
-        public int PaymentID { get; set; }
+        public int PaymentID { get; set; } //Foreign Key
 
 
         //Navigation Properties
