@@ -18,7 +18,7 @@ namespace JasperGreenTeam02.Models
         [Required]
         public string PropertyZIP { get; set; }
         [Required]
-        public string ServiceFee { get; set; }
+        public double ServiceFee { get; set; }
 
         public ICollection<ProvideService> ProvidedServices { get; set; }
     }
