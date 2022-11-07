@@ -13,9 +13,35 @@ namespace JasperGreenTeam02.Models
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Property> Properties { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Crew> Crews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Relationship and Deletion Rules
+
+
+            modelBuilder.Entity<Crew>()
+                .HasOne(e => e.Foreman)
+                .WithMany(c => c.Crews)
+                .OnDelete(DeleteBehavior.Restrict)
+            ;
+
+            modelBuilder.Entity<Crew>()
+                .HasOne(e => e.CrewMember1)
+                .WithMany(c => c.Member1)
+                .OnDelete(DeleteBehavior.Restrict)
+            ;
+
+            modelBuilder.Entity<Crew>()
+                .HasOne(e => e.CrewMember2)
+                .WithMany(c => c.Member2)
+                .OnDelete(DeleteBehavior.Restrict)
+            ;
+
+
+            //Seed Data
             modelBuilder.Entity<Customer>().HasData(
                 new Customer
                 {
@@ -166,6 +192,44 @@ namespace JasperGreenTeam02.Models
                     PaymentID = 1,
                     CustomerID = 1,
                     PaymentAmount = 0.0
+                }
+            );
+            modelBuilder.Entity<Employee>().HasData(
+                new Employee
+                {
+                    EmployeeID = 1,
+                    EmployeeFirstName = "Elliot",
+                    EmployeeLastName = "Matterbaby",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 2,
+                    EmployeeFirstName = "Edward",
+                    EmployeeLastName = "Linus",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HourlyRate = 10.5
+                },
+                new Employee
+                {
+                    EmployeeID = 3,
+                    EmployeeFirstName = "Emmy",
+                    EmployeeLastName = "Elders",
+                    SSN = 123726532,
+                    JobTitle = "Worker",
+                    HourlyRate = 10.5
+                }
+            );
+            modelBuilder.Entity<Crew>().HasData(
+                new Crew
+                { 
+                    CrewID = 1,
+                    CrewForemanID = 1,
+                    CrewMember1ID = 2,
+                    CrewMember2ID = 3
                 }
             );
         }

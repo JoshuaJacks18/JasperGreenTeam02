@@ -19,6 +19,45 @@ namespace JasperGreenTeam02.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("JasperGreenTeam02.Models.Crew", b =>
+                {
+                    b.Property<int>("CrewID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CrewForemanID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CrewMember1ID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CrewMember2ID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ForemanEmployeeID")
+                        .HasColumnType("int");
+
+                    b.HasKey("CrewID");
+
+                    b.HasIndex("CrewMember1ID");
+
+                    b.HasIndex("CrewMember2ID");
+
+                    b.HasIndex("ForemanEmployeeID");
+
+                    b.ToTable("Crews");
+
+                    b.HasData(
+                        new
+                        {
+                            CrewID = 1,
+                            CrewForemanID = 1,
+                            CrewMember1ID = 2,
+                            CrewMember2ID = 3
+                        });
+                });
+
             modelBuilder.Entity("JasperGreenTeam02.Models.Customer", b =>
                 {
                     b.Property<int>("CustomerID")
@@ -101,6 +140,68 @@ namespace JasperGreenTeam02.Migrations
                         });
                 });
 
+            modelBuilder.Entity("JasperGreenTeam02.Models.Employee", b =>
+                {
+                    b.Property<int>("EmployeeID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EmployeeFirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployeeLastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("HireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("HourlyRate")
+                        .HasColumnType("float");
+
+                    b.Property<string>("JobTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SSN")
+                        .HasColumnType("int");
+
+                    b.HasKey("EmployeeID");
+
+                    b.ToTable("Employees");
+
+                    b.HasData(
+                        new
+                        {
+                            EmployeeID = 1,
+                            EmployeeFirstName = "Elliot",
+                            EmployeeLastName = "Matterbaby",
+                            HireDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HourlyRate = 10.5,
+                            JobTitle = "Worker",
+                            SSN = 123726532
+                        },
+                        new
+                        {
+                            EmployeeID = 2,
+                            EmployeeFirstName = "Edward",
+                            EmployeeLastName = "Linus",
+                            HireDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HourlyRate = 10.5,
+                            JobTitle = "Worker",
+                            SSN = 123726532
+                        },
+                        new
+                        {
+                            EmployeeID = 3,
+                            EmployeeFirstName = "Emmy",
+                            EmployeeLastName = "Elders",
+                            HireDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            HourlyRate = 10.5,
+                            JobTitle = "Worker",
+                            SSN = 123726532
+                        });
+                });
+
             modelBuilder.Entity("JasperGreenTeam02.Models.Payment", b =>
                 {
                     b.Property<int>("PaymentID")
@@ -121,7 +222,7 @@ namespace JasperGreenTeam02.Migrations
 
                     b.HasIndex("CustomerID");
 
-                    b.ToTable("Payment");
+                    b.ToTable("Payments");
 
                     b.HasData(
                         new
@@ -255,6 +356,26 @@ namespace JasperGreenTeam02.Migrations
                             PropertyState = "TX",
                             PropertyZIP = "77480"
                         });
+                });
+
+            modelBuilder.Entity("JasperGreenTeam02.Models.Crew", b =>
+                {
+                    b.HasOne("JasperGreenTeam02.Models.Employee", "CrewMember1")
+                        .WithMany("Member1")
+                        .HasForeignKey("CrewMember1ID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JasperGreenTeam02.Models.Employee", "CrewMember2")
+                        .WithMany("Member2")
+                        .HasForeignKey("CrewMember2ID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JasperGreenTeam02.Models.Employee", "Foreman")
+                        .WithMany("Crews")
+                        .HasForeignKey("ForemanEmployeeID")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("JasperGreenTeam02.Models.Payment", b =>
