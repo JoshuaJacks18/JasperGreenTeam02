@@ -40,6 +40,34 @@ namespace JasperGreenTeam02.Models
                 .OnDelete(DeleteBehavior.Restrict)
             ;
 
+            modelBuilder.Entity<ProvideService>()
+                .HasKey(p => p.ServiceID)
+            ;
+
+            modelBuilder.Entity<ProvideService>()
+                .HasOne(c => c.Customer)
+                .WithMany(p => p.ProvidedServices)
+                .OnDelete(DeleteBehavior.Restrict)
+            ;
+
+            modelBuilder.Entity<ProvideService>()
+                .HasOne(c => c.Crew)
+                .WithMany(p => p.ProvidedServices)
+                .OnDelete(DeleteBehavior.Restrict)
+            ;
+            
+            modelBuilder.Entity<ProvideService>()
+                .HasOne(c => c.Property)
+                .WithMany(p => p.ProvidedServices)
+                .OnDelete(DeleteBehavior.Restrict)
+            ;
+
+            modelBuilder.Entity<ProvideService>()
+                .HasOne(c => c.Payment)
+                .WithMany(p => p.ProvidedServices)
+                .OnDelete(DeleteBehavior.Restrict)
+            ;
+
 
             //Seed Data
             modelBuilder.Entity<Customer>().HasData(
@@ -191,7 +219,31 @@ namespace JasperGreenTeam02.Models
                 {
                     PaymentID = 1,
                     CustomerID = 1,
-                    PaymentAmount = 0.0
+                    PaymentAmount = 300.0
+                },
+                new Payment
+                {
+                    PaymentID = 2,
+                    CustomerID = 2,
+                    PaymentAmount = 300.0
+                },
+                new Payment
+                {
+                    PaymentID = 3,
+                    CustomerID = 3,
+                    PaymentAmount = 300.0
+                },
+                new Payment
+                {
+                    PaymentID = 4,
+                    CustomerID = 4,
+                    PaymentAmount = 300.0
+                },
+                new Payment
+                {
+                    PaymentID = 5,
+                    CustomerID = 5,
+                    PaymentAmount = 300.0
                 }
             );
             modelBuilder.Entity<Employee>().HasData(
@@ -232,6 +284,18 @@ namespace JasperGreenTeam02.Models
                     CrewMember2ID = 3
                 }
             );
+            modelBuilder.Entity<ProvideService>().HasData(
+                new ProvideService
+                {
+                    ServiceID = 1,
+                    CrewID = 1,
+                    CustomerID = 1,
+                    PropertyID = 1,
+                    ServiceFee = 300.0,
+                    PaymentID = 1
+                }
+            );
+
         }
     }
 }

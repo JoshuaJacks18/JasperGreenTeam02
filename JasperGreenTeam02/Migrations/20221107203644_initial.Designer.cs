@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JasperGreenTeam02.Migrations
 {
     [DbContext(typeof(JasperGreenContext))]
-    [Migration("20221107200701_initial")]
+    [Migration("20221107203644_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -231,7 +231,7 @@ namespace JasperGreenTeam02.Migrations
                         {
                             PaymentID = 1,
                             CustomerID = 1,
-                            PaymentAmount = 0.0,
+                            PaymentAmount = 300.0,
                             PaymentDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -360,6 +360,56 @@ namespace JasperGreenTeam02.Migrations
                         });
                 });
 
+            modelBuilder.Entity("JasperGreenTeam02.Models.ProvideService", b =>
+                {
+                    b.Property<int>("ServiceID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CrewID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CustomerID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PaymentID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PropertyID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ServiceDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("ServiceFee")
+                        .HasColumnType("float");
+
+                    b.HasKey("ServiceID");
+
+                    b.HasIndex("CrewID");
+
+                    b.HasIndex("CustomerID");
+
+                    b.HasIndex("PaymentID");
+
+                    b.HasIndex("PropertyID");
+
+                    b.ToTable("ProvideService");
+
+                    b.HasData(
+                        new
+                        {
+                            ServiceID = 1,
+                            CrewID = 1,
+                            CustomerID = 1,
+                            PaymentID = 1,
+                            PropertyID = 1,
+                            ServiceDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ServiceFee = 300.0
+                        });
+                });
+
             modelBuilder.Entity("JasperGreenTeam02.Models.Crew", b =>
                 {
                     b.HasOne("JasperGreenTeam02.Models.Employee", "CrewMember1")
@@ -395,6 +445,33 @@ namespace JasperGreenTeam02.Migrations
                         .WithMany()
                         .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("JasperGreenTeam02.Models.ProvideService", b =>
+                {
+                    b.HasOne("JasperGreenTeam02.Models.Crew", "Crew")
+                        .WithMany("ProvidedServices")
+                        .HasForeignKey("CrewID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JasperGreenTeam02.Models.Customer", "Customer")
+                        .WithMany("ProvidedServices")
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JasperGreenTeam02.Models.Payment", "Payment")
+                        .WithMany("ProvidedServices")
+                        .HasForeignKey("PaymentID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("JasperGreenTeam02.Models.Property", "Property")
+                        .WithMany("ProvidedServices")
+                        .HasForeignKey("PropertyID")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

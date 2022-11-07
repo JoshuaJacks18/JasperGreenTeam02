@@ -122,6 +122,48 @@ namespace JasperGreenTeam02.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ProvideService",
+                columns: table => new
+                {
+                    ServiceID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CrewID = table.Column<int>(nullable: false),
+                    CustomerID = table.Column<int>(nullable: false),
+                    PropertyID = table.Column<int>(nullable: false),
+                    ServiceDate = table.Column<DateTime>(nullable: false),
+                    ServiceFee = table.Column<double>(nullable: false),
+                    PaymentID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProvideService", x => x.ServiceID);
+                    table.ForeignKey(
+                        name: "FK_ProvideService_Crews_CrewID",
+                        column: x => x.CrewID,
+                        principalTable: "Crews",
+                        principalColumn: "CrewID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ProvideService_Customers_CustomerID",
+                        column: x => x.CustomerID,
+                        principalTable: "Customers",
+                        principalColumn: "CustomerID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ProvideService_Payments_PaymentID",
+                        column: x => x.PaymentID,
+                        principalTable: "Payments",
+                        principalColumn: "PaymentID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ProvideService_Properties_PropertyID",
+                        column: x => x.PropertyID,
+                        principalTable: "Properties",
+                        principalColumn: "PropertyID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "CustomerID", "BillingAddress", "BillingCity", "BillingState", "BillingZIP", "CustomerPhone", "Name" },
@@ -152,7 +194,7 @@ namespace JasperGreenTeam02.Migrations
             migrationBuilder.InsertData(
                 table: "Payments",
                 columns: new[] { "PaymentID", "CustomerID", "PaymentAmount", "PaymentDate" },
-                values: new object[] { 1, 1, 0.0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                values: new object[] { 1, 1, 300.0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 table: "Properties",
@@ -170,6 +212,11 @@ namespace JasperGreenTeam02.Migrations
                     { 9, 5, "123 Main St", "College Station", "TX", "77480", null },
                     { 10, 5, "123 Main St", "College Station", "TX", "77480", null }
                 });
+
+            migrationBuilder.InsertData(
+                table: "ProvideService",
+                columns: new[] { "ServiceID", "CrewID", "CustomerID", "PaymentID", "PropertyID", "ServiceDate", "ServiceFee" },
+                values: new object[] { 1, 1, 1, 1, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 300.0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Crews_CrewMember1ID",
@@ -195,10 +242,33 @@ namespace JasperGreenTeam02.Migrations
                 name: "IX_Properties_CustomerID",
                 table: "Properties",
                 column: "CustomerID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProvideService_CrewID",
+                table: "ProvideService",
+                column: "CrewID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProvideService_CustomerID",
+                table: "ProvideService",
+                column: "CustomerID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProvideService_PaymentID",
+                table: "ProvideService",
+                column: "PaymentID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProvideService_PropertyID",
+                table: "ProvideService",
+                column: "PropertyID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ProvideService");
+
             migrationBuilder.DropTable(
                 name: "Crews");
 
