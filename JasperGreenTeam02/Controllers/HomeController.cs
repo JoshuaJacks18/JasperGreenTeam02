@@ -22,12 +22,18 @@ namespace JasperGreenTeam02.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// Returns ContactUs View
+        /// </summary>
+        /// <returns></returns>
         public IActionResult ContactUs()
         {
             return View();
         }
-
+        /// <summary>
+        /// Returns About View
+        /// </summary>
+        /// <returns></returns>
         public IActionResult About()
         {
             return View();

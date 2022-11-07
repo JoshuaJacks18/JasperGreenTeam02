@@ -1,11 +1,8 @@
-using System;
-
-namespace JasperGreenTeam02.Models
+﻿namespace JasperGreenTeam02.Models
 {
     public class ErrorViewModel
     {
         public string RequestId { get; set; }
-
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }
