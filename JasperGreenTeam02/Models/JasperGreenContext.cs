@@ -219,30 +219,35 @@ namespace JasperGreenTeam02.Models
                 {
                     PaymentID = 1,
                     CustomerID = 1,
+                    PaymentDate = DateTime.Now,
                     PaymentAmount = 300.0
                 },
                 new Payment
                 {
                     PaymentID = 2,
                     CustomerID = 2,
+                    PaymentDate = DateTime.Now,
                     PaymentAmount = 300.0
                 },
                 new Payment
                 {
                     PaymentID = 3,
                     CustomerID = 3,
+                    PaymentDate = DateTime.Now,
                     PaymentAmount = 300.0
                 },
                 new Payment
                 {
                     PaymentID = 4,
                     CustomerID = 4,
+                    PaymentDate = DateTime.Now,
                     PaymentAmount = 300.0
                 },
                 new Payment
                 {
                     PaymentID = 5,
                     CustomerID = 5,
+                    PaymentDate = DateTime.Now,
                     PaymentAmount = 300.0
                 }
             );
@@ -254,6 +259,7 @@ namespace JasperGreenTeam02.Models
                     EmployeeLastName = "Matterbaby",
                     SSN = 123726532,
                     JobTitle = "Worker",
+                    HireDate = DateTime.Now,
                     HourlyRate = 10.5
                 },
                 new Employee
@@ -263,6 +269,7 @@ namespace JasperGreenTeam02.Models
                     EmployeeLastName = "Linus",
                     SSN = 123726532,
                     JobTitle = "Worker",
+                    HireDate = DateTime.Now,
                     HourlyRate = 10.5
                 },
                 new Employee
@@ -272,6 +279,7 @@ namespace JasperGreenTeam02.Models
                     EmployeeLastName = "Elders",
                     SSN = 123726532,
                     JobTitle = "Worker",
+                    HireDate = DateTime.Now,
                     HourlyRate = 10.5
                 }
             );
