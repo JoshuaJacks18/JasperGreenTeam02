@@ -1,4 +1,17 @@
-﻿using System;
+﻿//AUTHOR:   Joshua Jacks, Justin Jiang 
+//COURSE:   ISTM 415 Section 501
+//FORM:     JasperGreenContext.cs 
+//PURPOSE:  This class provides Rules and Context for the other models.
+//          This class is also used to provide "seed" data for the database
+//INITIALIZE: When the proper commands are used within the nuget Package Manager Console
+//INPUT:    None
+//PROCESS:  Initializes the databse and seed data when told to do so
+//OUTPUT:   A database with certain rules and seed data
+//HONOR CODE: “On my honor, as an Aggie, I have neither given  
+//   nor received unauthorized aid on this academic  
+//   work.” 
+
+using System;
 using Microsoft.EntityFrameworkCore;
 
 
