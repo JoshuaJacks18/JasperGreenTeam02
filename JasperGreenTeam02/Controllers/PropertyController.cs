@@ -58,6 +58,7 @@ namespace JasperGreenTeam02.Controllers
             }
             else
             {
+                ViewBag.Customers = context.Customers.ToList();
                 if (property.PropertyID == 0)
                 {
                     ViewBag.Action = "Add";
@@ -66,7 +67,7 @@ namespace JasperGreenTeam02.Controllers
                 {
                     ViewBag.Action = "Edit";
                 }
-                return View(property);
+                return View("PropertyAddEdit",property);
             }
         }
 
