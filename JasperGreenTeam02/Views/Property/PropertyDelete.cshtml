@@ -1,0 +1,16 @@
+﻿@model Property
+@{
+    ViewBag.Title = "Delete Property";
+}
+
+<div class="jumbotron alert-danger mt-4">
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete @Model.PropertyAddress?</p>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="PropertyID" />
+
+        <button type="submit" class="btn btn-primary">Delete</button>
+        <a asp-action="PropertyList" class="btn btn-primary">Cancel</a>
+    </form>
+</div>

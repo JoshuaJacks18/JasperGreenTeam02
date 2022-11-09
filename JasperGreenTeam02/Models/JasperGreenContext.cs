@@ -153,7 +153,7 @@ namespace JasperGreenTeam02.Models
                     PropertyID = 2,
                     CustomerID = 1,
                     ServiceFee = 100.0,
-                    PropertyAddress = "123 Main St",
+                    PropertyAddress = "122 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
                     PropertyZIP = "77480"
@@ -163,7 +163,7 @@ namespace JasperGreenTeam02.Models
                     PropertyID = 3,
                     CustomerID = 2,
                     ServiceFee = 100.0,
-                    PropertyAddress = "123 Main St",
+                    PropertyAddress = "124 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
                     PropertyZIP = "77480"
@@ -173,7 +173,7 @@ namespace JasperGreenTeam02.Models
                     PropertyID = 4,
                     CustomerID = 2,
                     ServiceFee = 100.0,
-                    PropertyAddress = "123 Main St",
+                    PropertyAddress = "125 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
                     PropertyZIP = "77480"
@@ -183,7 +183,7 @@ namespace JasperGreenTeam02.Models
                     PropertyID = 5,
                     CustomerID = 3,
                     ServiceFee = 100.0,
-                    PropertyAddress = "123 Main St",
+                    PropertyAddress = "126 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
                     PropertyZIP = "77480"
@@ -193,7 +193,7 @@ namespace JasperGreenTeam02.Models
                     PropertyID = 6,
                     CustomerID = 3,
                     ServiceFee = 100.0,
-                    PropertyAddress = "123 Main St",
+                    PropertyAddress = "127 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
                     PropertyZIP = "77480"
@@ -203,7 +203,7 @@ namespace JasperGreenTeam02.Models
                     PropertyID = 7,
                     CustomerID = 4,
                     ServiceFee = 100.0,
-                    PropertyAddress = "123 Main St",
+                    PropertyAddress = "128 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
                     PropertyZIP = "77480"
@@ -213,7 +213,7 @@ namespace JasperGreenTeam02.Models
                     PropertyID = 8,
                     CustomerID = 4,
                     ServiceFee = 100.0,
-                    PropertyAddress = "123 Main St",
+                    PropertyAddress = "129 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
                     PropertyZIP = "77480"
@@ -223,7 +223,7 @@ namespace JasperGreenTeam02.Models
                     PropertyID = 9,
                     CustomerID = 5,
                     ServiceFee = 100.0,
-                    PropertyAddress = "123 Main St",
+                    PropertyAddress = "135 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
                     PropertyZIP = "77480"
@@ -233,7 +233,7 @@ namespace JasperGreenTeam02.Models
                     PropertyID = 10,
                     CustomerID = 5,
                     ServiceFee = 100.0,
-                    PropertyAddress = "123 Main St",
+                    PropertyAddress = "179 Main St",
                     PropertyCity = "College Station",
                     PropertyState = "TX",
                     PropertyZIP = "77480"
