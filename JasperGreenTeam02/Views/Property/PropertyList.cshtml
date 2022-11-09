@@ -1,0 +1,38 @@
+﻿@model List<Property>
+
+
+<h1>Property Manager</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>Customer</th>
+            <th>Service Fee</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var property in Model)
+        {
+        <tr>
+            <td>@property.PropertyAddress</td>
+            <td>@property.Customer.Name</td>
+            <td>@property.ServiceFee</td>
+            <td>
+                <a asp-action="Edit"
+                   asp-route-id="@property.PropertyID"
+                   class="btn btn-primary">Edit</a>
+            </td>
+            <td>
+                <a asp-action="Delete"
+                   asp-route-id="@property.PropertyID"
+                   class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Add" class="btn btn-primary mb-3">Add Property</a>

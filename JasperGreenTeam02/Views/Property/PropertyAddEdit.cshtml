@@ -1,0 +1,51 @@
+﻿@model Property
+@{
+    string title = ViewBag.Action + " Property";
+    ViewBag.Title = title;
+}
+
+<h1>@ViewBag.Title</h1>
+
+<form asp-action="Save" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="CustomerID">Customer</label>
+        <select asp-for="CustomerID" class="form-control">
+            <option value="">Select a customer...</option>
+            @foreach (Customer c in ViewBag.Customers)
+            {
+                <option value="@c.CustomerID">@c.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PropertyAddress">Address</label>
+        <input asp-for="PropertyAddress" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PropertyCity">City</label>
+        <input asp-for="PropertyCity" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PropertyState">State</label>
+        <input type="text" asp-for="PropertyState" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="PropertyZIP">Zip Code</label>
+        <input type="text" asp-for="PropertyZIP" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="ServiceFee">Service Fee</label>
+        <input type="text" asp-for="ServiceFee" class="form-control">
+    </div>
+
+
+    <input type="hidden" asp-for="PropertyID" />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="PropertyList" class="btn btn-primary">Cancel</a>
+</form>
