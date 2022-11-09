@@ -60,7 +60,7 @@ namespace SportsPro.Controllers
                     context.Customers.Update(customer);
                 }
                 context.SaveChanges();
-                return RedirectToAction("List");
+                return RedirectToAction("CustomerList");
             }
             else
             {

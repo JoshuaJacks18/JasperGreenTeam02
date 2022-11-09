@@ -7,10 +7,10 @@
     <h1>Confirm Deletion</h1>
     <p>Are you sure you want to delete '@Model.Name'?</p>
 
-    <form asp-action="Delete" method="post">
+    <form asp-action="CustomerDelete" method="post">
         <input type="hidden" asp-for="CustomerID" />
 
         <button type="submit" class="btn btn-primary">Delete</button>
-        <a asp-action="List" class="btn btn-primary">Cancel</a>
+        <a asp-action="CustomerList" class="btn btn-primary">Cancel</a>
     </form>
 </div>
