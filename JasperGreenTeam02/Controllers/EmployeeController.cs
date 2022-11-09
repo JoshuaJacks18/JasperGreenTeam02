@@ -5,19 +5,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SportsPro.Controllers
 {
-    public class CustomerController : Controller
+    public class EmployeeController : Controller
     {
         private JasperGreenContext context { get; set; }
 
-        public CustomerController(JasperGreenContext ctx)
+        public EmployeeController(JasperGreenContext ctx)
         {
             context = ctx;
         }
         [Route("[controller]s")]
-        public IActionResult CustomerList()
+        public IActionResult EmployeeList()
         {
-            List<Customer> customers = context.Customers.OrderBy(c => c.Name).ToList();
-            return View(customers);
+            List<Employee> employees = context.Employees.OrderBy(e => e.EmployeeLastName).ToList();
+            return View(employees);
         }
 
         [HttpGet]
@@ -25,7 +25,7 @@ namespace SportsPro.Controllers
         {
             ViewBag.Action = "Add";
 
-            return View("CustomerAddEdit", new Customer());
+            return View("EmployeeAddEdit", new Employee());
         }
 
         [HttpGet]
@@ -33,14 +33,14 @@ namespace SportsPro.Controllers
         {
             ViewBag.Action = "Edit";
 
-            var customer = context.Customers.Find(id);
-            return View("CustomerAddEdit", customer);
+            var employee = context.Employees.Find(id);
+            return View("EmployeeAddEdit", employee);
         }
 
         [HttpPost]
-        public IActionResult Save(Customer customer)
+        public IActionResult Save(Employee employee)
         {
-            if (customer.CustomerID == 0)
+            if (employee.EmployeeID == 0)
             {
                 ViewBag.Action = "Add";
             }
@@ -53,34 +53,34 @@ namespace SportsPro.Controllers
             {
                 if (ViewBag.Action == "Add")
                 {
-                    context.Customers.Add(customer);
+                    context.Employees.Add(employee);
                 }
                 else
                 {
-                    context.Customers.Update(customer);
+                    context.Employees.Update(employee);
                 }
                 context.SaveChanges();
-                return RedirectToAction("CustomerList");
+                return RedirectToAction("EmployeeList");
             }
             else
             {
-                return View("AddEdit", customer);
+                return View("EmployeeAddEdit", employee);
             }
         }
 
         [HttpGet]
-        public IActionResult CustomerDelete(int id)
+        public IActionResult EmployeeDelete(int id)
         {
-            var customer = context.Customers.Find(id);
-            return View(customer);
+            var employee = context.Employees.Find(id);
+            return View(employee);
         }
 
         [HttpPost]
-        public IActionResult CustomerDelete(Customer customer)
+        public IActionResult EmployeeDelete(Employee employee)
         {
-            context.Customers.Remove(customer);
+            context.Employees.Remove(employee);
             context.SaveChanges();
-            return RedirectToAction("CustomerList");
+            return RedirectToAction("EmployeeList");
         }
     }
 }
