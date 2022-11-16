@@ -18,21 +18,36 @@
     <tbody>
         @foreach (var crew in Model)
         {
-            <tr>
-                <td>@crew.Foreman.FullName</td>
+        <tr>
+            <td>@crew.Foreman.FullName</td>
+            @if (crew.CrewMember1 == null)
+            {
+                <td>Not Assigned</td> 
+            }
+            else
+            {
                 <td>@crew.CrewMember1.FullName</td>
+            }
+            @if (crew.CrewMember2 == null)
+            {
+                <td>Not Assigned</td>
+                ;
+            }
+            else
+            {
                 <td>@crew.CrewMember2.FullName</td>
-                <td>
-                    <a asp-action="Edit"
+            }
+            <td>
+                <a asp-action="Edit"
                    asp-route-id="@crew.CrewID"
                    class="btn btn-primary">Edit</a>
-                </td>
-                <td>
-                    <a asp-action="CrewDelete"
+            </td>
+            <td>
+                <a asp-action="CrewDelete"
                    asp-route-id="@crew.CrewID"
                    class="btn btn-primary">Delete</a>
-                </td>
-            </tr>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
