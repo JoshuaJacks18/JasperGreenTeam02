@@ -1,0 +1,40 @@
+﻿@model List<Crew>
+@{
+    ViewBag.Title = "Crew Manager";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Foreman</th>
+            <th>Crew Member 1</th>
+            <th>Crew Member 2</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var crew in Model)
+        {
+            <tr>
+                <td>@crew.Foreman.FullName</td>
+                <td>@crew.CrewMember1.FullName</td>
+                <td>@crew.CrewMember2.FullName</td>
+                <td>
+                    <a asp-action="Edit"
+                   asp-route-id="@crew.CrewID"
+                   class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="CrewDelete"
+                   asp-route-id="@crew.CrewID"
+                   class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Add" class="btn btn-primary mb-3">Add Crew</a>

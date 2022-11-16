@@ -1,0 +1,17 @@
+﻿@model Crew
+@{
+    ViewBag.Title = "Delete Employee";
+}
+
+<div class="jumbotron alert-danger mt-4">
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete 'Crew ID: @Model.CrewID ?</p>
+
+    <form asp-action="CrewDelete" method="post">
+        <input type="hidden" asp-for="CrewID" />
+
+        <button type="submit" class="btn btn-primary">Delete</button>
+        <a asp-action="CrewList" class="btn btn-primary">Cancel</a>
+    </form>
+</div>
+
