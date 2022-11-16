@@ -32,7 +32,7 @@
 
     <div class="row form-group">
         <div class="col-sm-6">
-            <label asp-for="CrewMember1ID">Foreman</label>
+            <label asp-for="CrewMember1ID">Crew Member 1</label>
             <select asp-for="CrewMember1ID" class="form-control">
                 <option value="">Select an employee...</option>
                 @foreach (Employee e in ViewBag.Employees)
@@ -48,7 +48,7 @@
 
     <div class="row form-group">
         <div class="col-sm-6">
-            <label asp-for="CrewMember2ID">Foreman</label>
+            <label asp-for="CrewMember2ID">Crew Member 2</label>
             <select asp-for="CrewMember2ID" class="form-control">
                 <option value="">Select an employee...</option>
                 @foreach (Employee e in ViewBag.Employees)
