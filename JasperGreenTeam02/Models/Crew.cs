@@ -23,7 +23,7 @@ namespace JasperGreenTeam02.Models
     {
         public int CrewID { get; set; }
 
-        
+        [Required]
         [InverseProperty("Crews")]
         [ForeignKey("EmployeeID")]
         public int? ForemanID { get; set; } //Foreign Key
@@ -31,12 +31,12 @@ namespace JasperGreenTeam02.Models
 
         [Required]
         [ForeignKey("EmployeeID")]
-        public int CrewMember1ID { get; set; } //Foreign Key
+        public int? CrewMember1ID { get; set; } //Foreign Key
         public Employee CrewMember1 { get; set; } //Navigation Property
 
         [Required]
         [ForeignKey("EmployeeID")]
-        public int CrewMember2ID { get; set; } //Foreign Key
+        public int? CrewMember2ID { get; set; } //Foreign Key
         public Employee CrewMember2 { get; set; } //Navigation Property
 
 

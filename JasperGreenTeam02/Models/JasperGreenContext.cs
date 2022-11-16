@@ -37,21 +37,38 @@ namespace JasperGreenTeam02.Models
             //Relationship and Deletion Rules////////////////////////////////
 
 
+            modelBuilder.Entity<Payment>()
+                .HasOne(p => p.Customer)
+                .WithMany(c => c.Payments)
+                .HasForeignKey(c => c.CustomerID)
+                .OnDelete(DeleteBehavior.Restrict)
+            ;
+
+            modelBuilder.Entity<Property>()
+                .HasOne(p => p.Customer)
+                .WithMany(c => c.Properties)
+                .HasForeignKey(c => c.CustomerID)
+                .OnDelete(DeleteBehavior.Restrict)
+            ;
+
             modelBuilder.Entity<Crew>()
                 .HasOne(e => e.Foreman)
                 .WithMany(c => c.Crews)
-                .OnDelete(DeleteBehavior.SetNull)
+                .HasForeignKey(c => c.ForemanID)
+                .OnDelete(DeleteBehavior.Restrict)
             ;
 
             modelBuilder.Entity<Crew>()
                 .HasOne(e => e.CrewMember1)
                 .WithMany(c => c.Member1)
+                .HasForeignKey(c => c.CrewMember1ID)
                 .OnDelete(DeleteBehavior.Restrict)
             ;
 
             modelBuilder.Entity<Crew>()
                 .HasOne(e => e.CrewMember2)
                 .WithMany(c => c.Member2)
+                .HasForeignKey(c => c.CrewMember2ID)
                 .OnDelete(DeleteBehavior.Restrict)
             ;
 
@@ -62,24 +79,28 @@ namespace JasperGreenTeam02.Models
             modelBuilder.Entity<ProvideService>()
                 .HasOne(c => c.Customer)
                 .WithMany(p => p.ProvidedServices)
+                .HasForeignKey(c => c.CustomerID)
                 .OnDelete(DeleteBehavior.Restrict)
             ;
 
             modelBuilder.Entity<ProvideService>()
                 .HasOne(c => c.Crew)
                 .WithMany(p => p.ProvidedServices)
+                .HasForeignKey(c => c.CrewID)
                 .OnDelete(DeleteBehavior.Restrict)
             ;
             
             modelBuilder.Entity<ProvideService>()
                 .HasOne(c => c.Property)
                 .WithMany(p => p.ProvidedServices)
+                .HasForeignKey(c => c.PropertyID)
                 .OnDelete(DeleteBehavior.Restrict)
             ;
 
             modelBuilder.Entity<ProvideService>()
                 .HasOne(c => c.Payment)
                 .WithMany(p => p.ProvidedServices)
+                .HasForeignKey(c => c.PaymentID)
                 .OnDelete(DeleteBehavior.Restrict)
             ;
 
