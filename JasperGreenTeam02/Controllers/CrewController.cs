@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JasperGreenTeam02.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -85,8 +86,15 @@ namespace SportsPro.Controllers
         [HttpPost]
         public IActionResult CrewDelete(Crew crew)
         {
-            context.Crews.Remove(crew);
-            context.SaveChanges();
+            try
+            {
+                context.Crews.Remove(crew);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                TempData["message"] = "There are one or more relationships with Employee or ProvideService that prevent deletion.";
+            }
             return RedirectToAction("CrewList");
         }
     }
