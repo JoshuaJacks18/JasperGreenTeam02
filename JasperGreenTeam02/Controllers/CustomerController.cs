@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JasperGreenTeam02.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -78,8 +79,15 @@ namespace SportsPro.Controllers
         [HttpPost]
         public IActionResult CustomerDelete(Customer customer)
         {
-            context.Customers.Remove(customer);
-            context.SaveChanges();
+            try
+            {
+                context.Customers.Remove(customer);
+                context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                TempData["message"] = "There are one or more relationships with Payments, Property, or ProvideService that prevent deletion.";
+            }
             return RedirectToAction("CustomerList");
         }
     }
