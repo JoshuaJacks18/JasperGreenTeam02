@@ -8,6 +8,7 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
+            <th>Crew Number</th>
             <th>Foreman</th>
             <th>Crew Member 1</th>
             <th>Crew Member 2</th>
@@ -19,8 +20,9 @@
         @foreach (var crew in Model)
         {
         <tr>
+            <td>@crew.CrewID</td>
             <td>@crew.Foreman.FullName</td>
-            @if (crew.CrewMember1 == null)
+            @if (crew.CrewMember1 == null) //If we had the OnDelte set to Set_Null potential option in the future
             {
                 <td>Not Assigned</td> 
             }

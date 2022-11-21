@@ -14,10 +14,12 @@
 //   nor received unauthorized aid on this academic  
 //   work.” 
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using JasperGreenTeam02.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace SportsPro.Controllers
 {
