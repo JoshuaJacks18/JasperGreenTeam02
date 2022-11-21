@@ -29,6 +29,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Property" asp-action="PropertyList">Property</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="EmployeeList">Employee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Crew" asp-action="CrewList">Crew</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
                         </li>
                     </ul>
@@ -40,7 +46,11 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-5">
+            @if (TempData.Keys.Contains("message"))
+            {
+                <h2 class="bg-info text-white text-center p-2 mt-2 rounded">@TempData["message"]</h2>
+            }
             @RenderBody()
         </main>
     </div>
@@ -56,3 +66,11 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+
+<style>
+    .logo-header {
+        height: 60px;
+        width: 60px;
+    }
+</style>

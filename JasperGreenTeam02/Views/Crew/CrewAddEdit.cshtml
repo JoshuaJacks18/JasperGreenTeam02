@@ -1,0 +1,84 @@
+﻿@model Crew
+@{
+    string title = ViewBag.Action + " Employee";
+    ViewBag.Title = title;
+}
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+    <h1>@ViewBag.Title</h1>
+
+    <form asp-action="Save" method="post">
+
+        <div class="row form-group">
+            <div class="col-sm-6">
+            <label asp-for="ForemanID">Foreman</label>
+            <select asp-for="ForemanID" class="form-control">
+                <option value="">Select an employee...</option>
+            @foreach (Employee e in ViewBag.Employees)
+            {
+                <option value="@e.EmployeeID">@e.FullName</option>
+            }
+            </select>
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="ForemanID" class="text-danger"></span> @*puts validation message at side of the respective field*@
+            </div>
+        </div>
+
+
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="CrewMember1ID">Crew Member 1</label>
+            <select asp-for="CrewMember1ID" class="form-control">
+                <option value="">Select an employee...</option>
+                @foreach (Employee e in ViewBag.Employees)
+                {
+                    <option value="@e.EmployeeID">@e.FullName</option>
+                }
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <span asp-validation-for="CrewMember1ID" class="text-danger"></span> @*puts validation message at side of the respective field*@
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="CrewMember2ID">Crew Member 2</label>
+            <select asp-for="CrewMember2ID" class="form-control">
+                <option value="">Select an employee...</option>
+                @foreach (Employee e in ViewBag.Employees)
+                {
+                    <option value="@e.EmployeeID">@e.FullName</option>
+                }
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <span asp-validation-for="CrewMember2ID" class="text-danger"></span> @*puts validation message at side of the respective field*@
+        </div>
+    </div>
+
+        <input type="hidden" asp-for="CrewID" />
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="CrewList" class="btn btn-primary">Cancel</a>
+    </form>
+    @*css styling for boxes with validation errors*@
+    <style>
+        .input-validation-error {
+            border: 2px solid #dc3545;
+            background-color: #faebd7;
+        }
+
+        .validation-summary-valid {
+            display: none;
+        }
+
+        .validation-summary-errors ul {
+            list-style: none;
+        }
+    </style>

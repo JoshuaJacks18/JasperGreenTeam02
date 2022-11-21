@@ -36,5 +36,7 @@ namespace JasperGreenTeam02.Models
         public string CustomerPhone { get; set; }
 
         public ICollection<ProvideService> ProvidedServices { get; set; }
+        public ICollection<Payment> Payments { get; set; }
+        public ICollection<Property> Properties { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 @{
     string title = ViewBag.Action + " Employee";
     ViewBag.Title = title;
+    Model.HireDate = DateTime.Now;
 }
 
 @section scripts {
@@ -15,7 +16,7 @@
 
         <div class="row form-group">
             <label asp-for="EmployeeFirstName" class="col-sm-3">First Name</label>
-            <div class="col">
+            <div class="col-sm-6">
                 <input asp-for="EmployeeFirstName" class="form-control">
             </div>
             <div class="col-sm-6">
@@ -24,7 +25,7 @@
         </div>
         <div class="row form-group">
             <label asp-for="EmployeeLastName" class="col-sm-3">Last Name</label>
-            <div class="col">
+            <div class="col-sm-6">
                 <input asp-for="EmployeeLastName" class="form-control">
             </div>
             <div class="col-sm-6">
@@ -33,7 +34,7 @@
         </div>
         <div class="row form-group">
             <label asp-for="SSN" class="col-sm-3">SSN</label>
-            <div class="col">
+            <div class="col-sm-6">
                 <input asp-for="SSN" class="form-control">
             </div>
             <div class="col-sm-6">
@@ -42,7 +43,7 @@
         </div>
         <div class="row form-group">
             <label asp-for="JobTitle" class="col-sm-3">Job Title</label>
-            <div class="col">
+            <div class="col-sm-6">
                 <input asp-for="JobTitle" class="form-control">
             </div>
             <div class="col-sm-6">
@@ -51,7 +52,7 @@
         </div>
         <div class="row form-group">
             <label asp-for="HireDate" class="col-sm-3">Hire Date</label>
-            <div class="col">
+            <div class="col-sm-6">
                 <input asp-for="HireDate" class="form-control">
             </div>
             <div class="col-sm-6">
@@ -60,20 +61,11 @@
         </div>
         <div class="row form-group">
             <label asp-for="HourlyRate" class="col-sm-3">Hourly Rate</label>
-            <div class="col">
+            <div class="col-sm-6">
                 <input asp-for="HourlyRate" class="form-control">
             </div>
             <div class="col-sm-6">
                 <span asp-validation-for="HourlyRate" class="text-danger"></span> @*puts validation message at side of the respective field*@
-            </div>
-        </div>
-        <div class="row form-group">
-            <label asp-for="HireDate" class="col-sm-3">Hire Date</label>
-            <div class="col">
-                <input asp-for="HireDate" class="form-control">
-            </div>
-            <div class="col-sm-6">
-                <span asp-validation-for="HireDate" class="text-danger"></span> @*puts validation message at side of the respective field*@
             </div>
         </div>
 

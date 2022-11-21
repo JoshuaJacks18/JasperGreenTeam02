@@ -22,25 +22,28 @@ namespace JasperGreenTeam02.Models
     public class Crew
     {
         public int CrewID { get; set; }
-        
-        [ForeignKey("EmployeeID")]
-        [InverseProperty("Crews")]
+
         [Required]
-        public int CrewForemanID { get; set; } //Foreign Key
+        [InverseProperty("Crews")]
+        [ForeignKey("EmployeeID")]
+        public int ForemanID { get; set; } //Foreign Key
+        public Employee Foreman { get; set; } //Navigation Property
 
         [Required]
         [ForeignKey("EmployeeID")]
         public int CrewMember1ID { get; set; } //Foreign Key
+        public Employee CrewMember1 { get; set; } //Navigation Property
 
         [Required]
         [ForeignKey("EmployeeID")]
         public int CrewMember2ID { get; set; } //Foreign Key
+        public Employee CrewMember2 { get; set; } //Navigation Property
 
 
-        //Navigation Properties
-        public Employee Foreman { get; set; }
-        public Employee CrewMember1 { get; set; }
-        public Employee CrewMember2 { get; set; }
+
+
+
+
         public ICollection<ProvideService> ProvidedServices { get; set; }
     }
 }

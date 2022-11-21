@@ -34,6 +34,7 @@ namespace JasperGreenTeam02.Models
         public DateTime HireDate { get; set; }
         [Required]
         public double HourlyRate { get; set; }
+        public string FullName => EmployeeFirstName + " " + EmployeeLastName;   // read-only property
 
         public ICollection<Crew> Crews { get; set; }
         public ICollection<Crew> Member1 { get; set; }
