@@ -101,7 +101,7 @@ namespace SportsPro.Controllers
                 context.Customers.Remove(customer);
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception ex) //Catches when a change cant be made due to relationships in the database
             {
                 TempData["message"] = "There are one or more relationships with Payments, Property, or ProvideService that prevent deletion.";
             }
