@@ -1,0 +1,63 @@
+﻿@model Payment
+@{
+    string title = ViewBag.Action + " Payment";
+    ViewBag.Title = title;
+}
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+    <h1>@ViewBag.Title</h1>
+
+    <form asp-action="Save" method="post">
+
+        <div class="row form-group">
+            <label asp-for="Customer.Name" class="col-sm-3">Customer Name</label>
+            <div class="col-sm-6">
+                <input asp-for="Customer.Name" class="form-control">
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="Customer.Name" class="text-danger"></span> @*puts validation message at side of the respective field*@
+            </div>
+        </div>
+        <div class="row form-group">
+            <label asp-for="PaymentAmount" class="col-sm-3">Payment Amount</label>
+            <div class="col-sm-6">
+                <input asp-for="PaymentAmount" class="form-control">
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="PaymentAmount" class="text-danger"></span> @*puts validation message at side of the respective field*@
+            </div>
+        </div>
+        <div class="row form-group">
+            <label asp-for="PaymentDate" class="col-sm-3">Payment Date</label>
+            <div class="col-sm-6">
+                <input asp-for="PaymentDate" class="form-control">
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="PaymentDate" class="text-danger"></span> @*puts validation message at side of the respective field*@
+            </div>
+        </div>
+
+        <input type="hidden" asp-for="PaymentID" />
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="PaymentList" class="btn btn-primary">Cancel</a>
+    </form>
+    @*css styling for boxes with validation errors*@
+    <style>
+        .input-validation-error {
+            border: 2px solid #dc3545;
+            background-color: #faebd7;
+        }
+
+        .validation-summary-valid {
+            display: none;
+        }
+
+        .validation-summary-errors ul {
+            list-style: none;
+        }
+    </style>
