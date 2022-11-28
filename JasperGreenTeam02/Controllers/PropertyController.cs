@@ -98,8 +98,15 @@ namespace JasperGreenTeam02.Controllers
         [HttpPost]
         public IActionResult Delete(Property property)
         {
-            context.Properties.Remove(property);
-            context.SaveChanges();
+            try
+            {
+                context.Properties.Remove(property);
+                context.SaveChanges();
+            }
+            catch (Exception ex) //Catches when a change cant be made due to relationships in the database
+            {
+                TempData["message"] = "There are one or more relationships with Payments, Property, or ProvideService that prevent deletion.";
+            }
             return RedirectToAction("PropertyList");
         }
     }

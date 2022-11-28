@@ -101,7 +101,7 @@ namespace SportsPro.Controllers
                 context.Employees.Remove(employee);
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception ex) //Catches when a change cant be made due to relationships in the database
             {
                 TempData["message"] = "There are one or more relationships with Crew or ProvideService that prevent deletion.";
             }
