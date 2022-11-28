@@ -31,7 +31,7 @@ namespace JasperGreenTeam02.Models
         public DateTime ServiceDate { get; set; }
         [Required]
         public double ServiceFee { get; set; }
-        public int PaymentID { get; set; } //Foreign Key
+        public int? PaymentID { get; set; } //Foreign Key
 
 
         //Navigation Properties

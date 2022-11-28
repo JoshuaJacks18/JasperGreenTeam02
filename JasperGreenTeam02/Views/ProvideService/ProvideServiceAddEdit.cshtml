@@ -1,0 +1,116 @@
+﻿@model ProvideService
+@{
+    string title = ViewBag.Action + " Service";
+    ViewBag.Title = title;
+}
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+    <h1>@ViewBag.Title</h1>
+
+    <form asp-action="Save" method="post">
+
+        <div class="row form-group">
+            <div class="col-sm-6">
+            <label asp-for="CrewID">Crew</label>
+                <select asp-for="CrewID" class="form-control">
+                <option value="">Select a crew...</option>
+            @foreach (Crew c in ViewBag.Crews)
+            {
+                <option value="@c.CrewID">@c.CrewID</option>
+            }
+            </select>
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="CrewID" class="text-danger"></span> @*puts validation message at side of the respective field*@
+            </div>
+        </div>
+
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="CustomerID">Customer</label>
+            <select asp-for="CustomerID" class="form-control">
+                <option value="">Select a customer...</option>
+                @foreach (Customer c in ViewBag.Customers)
+                {
+                    <option value="@c.CustomerID">@c.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <span asp-validation-for="CustomerID" class="text-danger"></span> @*puts validation message at side of the respective field*@
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="PropertyID">Property</label>
+            <select asp-for="PropertyID" class="form-control">
+                <option value="">Select a property...</option>
+                @foreach (Property p in ViewBag.Properties)
+                {
+                    <option value="@p.PropertyID">@p.PropertyID</option>
+                }
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <span asp-validation-for="PropertyID" class="text-danger"></span> @*puts validation message at side of the respective field*@
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <label asp-for="ServiceDate" class="col-sm-3">Service Date</label>
+        <div class="col">
+            <input asp-for="ServiceDate" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <span asp-validation-for="ServiceDate" class="text-danger"></span> @*puts validation message at side of the respective field*@
+        </div>
+    </div>
+
+    <div class="row form-group">
+            <label asp-for="ServiceFee" class="col-sm-3">Service Fee</label>
+            <div class="col">
+                <input asp-for="ServiceFee" class="form-control">
+            </div>
+            <div class="col-sm-6">
+                <span asp-validation-for="ServiceFee" class="text-danger"></span> @*puts validation message at side of the respective field*@
+            </div>
+        </div>
+
+    <div class="row form-group">
+        <label asp-for="PaymentID" class="col-sm-3">PaymentID</label>
+        <div class="col">
+            <input asp-for="PaymentID" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <span asp-validation-for="PaymentID" class="text-danger"></span> @*puts validation message at side of the respective field*@
+        </div>
+    </div>
+
+
+        <input type="hidden" asp-for="PaymentID" />
+
+        <input type="hidden" asp-for="ServiceID" />
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="ProvideServiceList" class="btn btn-primary">Cancel</a>
+    </form>
+    @*css styling for boxes with validation errors*@
+    <style>
+        .input-validation-error {
+            border: 2px solid #dc3545;
+            background-color: #faebd7;
+        }
+
+        .validation-summary-valid {
+            display: none;
+        }
+
+        .validation-summary-errors ul {
+            list-style: none;
+        }
+    </style>

@@ -1,0 +1,17 @@
+﻿@model ProvideService
+@{
+    ViewBag.Title = "Delete Service";
+}
+
+<div class="jumbotron alert-danger mt-4">
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete 'Service ID: @Model.ServiceID ?</p>
+
+    <form asp-action="ProvideServiceDelete" method="post">
+        <input type="hidden" asp-for="ServiceID" />
+
+        <button type="submit" class="btn btn-primary">Delete</button>
+        <a asp-action="ProvideServiceList" class="btn btn-primary">Cancel</a>
+    </form>
+</div>
+

@@ -1,0 +1,49 @@
+﻿@model List<ProvideService>
+@{
+    ViewBag.Title = "Crew Manager";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Service ID</th>
+            <th>Customer</th>
+            <th>Property</th>
+            <th>Service Date</th>
+            <th>Payment Made</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model)
+        {
+        <tr>
+            <td>@service.ServiceID</td>
+            <td>@service.Customer.Name</td>
+            <td>@service.PropertyID</td>
+            <td>@service.ServiceDate</td>
+            @if(service.PaymentID == 0){
+                    <td>Not Paid</td>
+            }else{
+                    <td>@service.PaymentID</td>
+            }
+            
+            <td>
+                <a asp-action="Edit"
+                   asp-route-id="@service.ServiceID"
+                   class="btn btn-primary">Edit</a>
+            </td>
+            <td>
+                <a asp-action="ProvideServiceDelete"
+                   asp-route-id="@service.ServiceID"
+                   class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Add" class="btn btn-primary mb-3">Add Service</a>
