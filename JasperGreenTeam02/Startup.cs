@@ -25,6 +25,8 @@ namespace JasperGreenTeam02
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMemoryCache();
+            services.AddSession();
             services.AddControllersWithViews();
             services.AddDbContext<JasperGreenContext>(options =>
                 options.UseSqlServer(
@@ -50,6 +52,8 @@ namespace JasperGreenTeam02
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
