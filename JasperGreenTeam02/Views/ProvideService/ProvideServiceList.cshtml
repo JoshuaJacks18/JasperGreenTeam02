@@ -1,9 +1,32 @@
 ﻿@model List<ProvideService>
 @{
+    string controller = ViewContext.RouteData.Values["controller"].ToString();
+    string action = ViewContext.RouteData.Values["action"].ToString();
+}
+@{
     ViewBag.Title = "Crew Manager";
 }
 
 <h1>@ViewBag.Title</h1>
+
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-item nav-link @(controller == "ProvideService" && action == "ProvideServiceList" ? "active" : "")"
+           asp-controller="ProvideService" asp-action="List">All Services</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-item nav-link @(controller == "ProvideService" && action == "GetCustomer" ? "active" : "")"
+           asp-controller="ProvideService" asp-action="GetCustomer">By Customer</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-item nav-link @(controller == "ProvideService" && action == "openList" ? "active" : "")"
+           asp-controller="ProvideService" asp-action="GetProperty">By Property</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-item nav-link @(controller == "ProvideService" && action == "openList" ? "active" : "")"
+           asp-controller="ProvideService" asp-action="GetCrew">By Crew</a>
+    </li>
+</ul>
 
 <table class="table table-bordered table-striped">
     <thead>
@@ -12,7 +35,6 @@
             <th>Customer</th>
             <th>Property</th>
             <th>Service Date</th>
-            <th>Payment Made</th>
             <th></th>
             <th></th>
         </tr>
@@ -25,11 +47,6 @@
             <td>@service.Customer.Name</td>
             <td>@service.PropertyID</td>
             <td>@service.ServiceDate</td>
-            @if(service.PaymentID == 0){
-                    <td>Not Paid</td>
-            }else{
-                    <td>@service.PaymentID</td>
-            }
             
             <td>
                 <a asp-action="Edit"

@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using JasperGreenTeam02.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,6 +42,42 @@ namespace SportsPro.Controllers
                 .OrderBy(e => e.ServiceID)
                 .ToList();
             return View(providedServices);
+        }
+
+        [HttpGet]
+        public IActionResult GetCustomer()
+        {
+            //HttpContext.Session.SetString("CustomerName", "name");
+
+            List<Customer> customers = context.Customers.OrderBy(t => t.Name).ToList();
+
+            ViewBag.Customers = customers;
+
+            return View(new Customer());
+        }
+
+        [HttpGet]
+        public IActionResult GetCrew()
+        {
+            //HttpContext.Session.SetString("CustomerName", "name");
+
+            List<Crew> crews = context.Crews.OrderBy(t => t.CrewID).ToList();
+
+            ViewBag.Crews = crews;
+
+            return View(new Crew());
+        }
+
+        [HttpGet]
+        public IActionResult GetProperty()
+        {
+            //HttpContext.Session.SetString("CustomerName", "name");
+
+            List<Property> properties = context.Properties.OrderBy(t => t.PropertyID).ToList();
+
+            ViewBag.Properties = properties;
+
+            return View(new Property());
         }
 
         [HttpGet]

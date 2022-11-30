@@ -1,0 +1,30 @@
+﻿@model Crew
+@using Microsoft.AspNetCore.Http
+@{
+    string title = "Crew";
+    ViewBag.Title = title;
+    var cust = new Crew();
+}
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<h1>@ViewBag.Title</h1>
+
+
+
+<form asp-action="ListByCrew" method="post">
+
+     <div class="form-group">
+            <select asp-for="CrewID" class="form-control">
+            @foreach (Crew c in ViewBag.Crews)
+            {
+                <option value="@c.CrewID">@c.CrewID</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Select</button>
+</form>

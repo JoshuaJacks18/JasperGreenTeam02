@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JasperGreenTeam02.Migrations
 {
-    public partial class initial : Migration
+    public partial class intial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -132,7 +132,7 @@ namespace JasperGreenTeam02.Migrations
                     PropertyID = table.Column<int>(nullable: false),
                     ServiceDate = table.Column<DateTime>(nullable: false),
                     ServiceFee = table.Column<double>(nullable: false),
-                    PaymentID = table.Column<int>(nullable: false)
+                    PaymentID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -180,21 +180,21 @@ namespace JasperGreenTeam02.Migrations
                 columns: new[] { "EmployeeID", "EmployeeFirstName", "EmployeeLastName", "HireDate", "HourlyRate", "JobTitle", "SSN" },
                 values: new object[,]
                 {
-                    { 13, "Dameon", "Walker", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1480), 10.5, "Worker", 123726532 },
-                    { 12, "Greg", "Williams", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1477), 10.5, "Worker", 123726532 },
-                    { 11, "Spencer", "Simons", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1474), 10.5, "Worker", 123726532 },
-                    { 10, "Tyler", "Thames", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1470), 10.5, "Worker", 123726532 },
-                    { 9, "Sean", "Price", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1467), 10.5, "Worker", 123726532 },
-                    { 8, "Shawn", "Young", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1464), 10.5, "Worker", 123726532 },
-                    { 5, "John", "Baptist", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1453), 10.5, "Worker", 123726532 },
-                    { 6, "Jimmy", "Neutron", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1457), 10.5, "Worker", 123726532 },
-                    { 14, "James", "Thomas", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1484), 10.5, "Worker", 123726532 },
-                    { 4, "Josh", "Jacks", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1449), 10.5, "Worker", 123726532 },
-                    { 3, "Emmy", "Elders", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1446), 10.5, "Worker", 123726532 },
-                    { 2, "Edward", "Linus", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1418), 10.5, "Worker", 123726532 },
-                    { 1, "Elliot", "Matterbaby", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(797), 10.5, "Worker", 123726532 },
-                    { 7, "Timmy", "Turner", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1460), 10.5, "Worker", 123726532 },
-                    { 15, "Patrick", "Star", new DateTime(2022, 11, 28, 11, 45, 59, 592, DateTimeKind.Local).AddTicks(1488), 10.5, "Worker", 123726532 }
+                    { 13, "Dameon", "Walker", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(917), 10.5, "Worker", 123726532 },
+                    { 12, "Greg", "Williams", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(913), 10.5, "Worker", 123726532 },
+                    { 11, "Spencer", "Simons", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(910), 10.5, "Worker", 123726532 },
+                    { 10, "Tyler", "Thames", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(906), 10.5, "Worker", 123726532 },
+                    { 9, "Sean", "Price", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(903), 10.5, "Worker", 123726532 },
+                    { 8, "Shawn", "Young", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(900), 10.5, "Worker", 123726532 },
+                    { 5, "John", "Baptist", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(890), 10.5, "Worker", 123726532 },
+                    { 6, "Jimmy", "Neutron", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(893), 10.5, "Worker", 123726532 },
+                    { 14, "James", "Thomas", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(921), 10.5, "Worker", 123726532 },
+                    { 4, "Josh", "Jacks", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(886), 10.5, "Worker", 123726532 },
+                    { 3, "Emmy", "Elders", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(880), 10.5, "Worker", 123726532 },
+                    { 2, "Edward", "Linus", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(854), 10.5, "Worker", 123726532 },
+                    { 1, "Elliot", "Matterbaby", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(237), 10.5, "Worker", 123726532 },
+                    { 7, "Timmy", "Turner", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(896), 10.5, "Worker", 123726532 },
+                    { 15, "Patrick", "Star", new DateTime(2022, 11, 30, 11, 15, 37, 588, DateTimeKind.Local).AddTicks(924), 10.5, "Worker", 123726532 }
                 });
 
             migrationBuilder.InsertData(
@@ -214,11 +214,11 @@ namespace JasperGreenTeam02.Migrations
                 columns: new[] { "PaymentID", "CustomerID", "PaymentAmount", "PaymentDate" },
                 values: new object[,]
                 {
-                    { 5, 5, 200.0, new DateTime(2022, 11, 28, 11, 45, 59, 591, DateTimeKind.Local).AddTicks(8720) },
-                    { 4, 4, 200.0, new DateTime(2022, 11, 28, 11, 45, 59, 591, DateTimeKind.Local).AddTicks(8717) },
-                    { 2, 2, 200.0, new DateTime(2022, 11, 28, 11, 45, 59, 591, DateTimeKind.Local).AddTicks(8660) },
-                    { 3, 3, 200.0, new DateTime(2022, 11, 28, 11, 45, 59, 591, DateTimeKind.Local).AddTicks(8711) },
-                    { 1, 1, 200.0, new DateTime(2022, 11, 28, 11, 45, 59, 589, DateTimeKind.Local).AddTicks(3770) }
+                    { 5, 5, 200.0, new DateTime(2022, 11, 30, 11, 15, 37, 587, DateTimeKind.Local).AddTicks(8267) },
+                    { 4, 4, 200.0, new DateTime(2022, 11, 30, 11, 15, 37, 587, DateTimeKind.Local).AddTicks(8264) },
+                    { 2, 2, 200.0, new DateTime(2022, 11, 30, 11, 15, 37, 587, DateTimeKind.Local).AddTicks(8218) },
+                    { 3, 3, 200.0, new DateTime(2022, 11, 30, 11, 15, 37, 587, DateTimeKind.Local).AddTicks(8259) },
+                    { 1, 1, 200.0, new DateTime(2022, 11, 30, 11, 15, 37, 585, DateTimeKind.Local).AddTicks(4321) }
                 });
 
             migrationBuilder.InsertData(
