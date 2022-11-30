@@ -229,7 +229,7 @@ namespace SportsPro.Controllers
                     context.ProvideServices.Update(service);
                 }
                 context.SaveChanges();
-                return RedirectToAction("ProvideServiceList");
+                return RedirectToAction("Return");
             }
             else
             {
@@ -256,7 +256,7 @@ namespace SportsPro.Controllers
             {
                 TempData["message"] = "There are one or more relationships with Employee or ProvideService that prevent deletion.";
             }
-            return RedirectToAction("ProvideServiceList");
+            return RedirectToAction("Return");
         }
     }
 }

@@ -23,18 +23,18 @@ namespace JasperGreenTeam02.Models
     {
         public int CrewID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "You must select a Forman")]
         [InverseProperty("Crews")]
         [ForeignKey("EmployeeID")]
         public int ForemanID { get; set; } //Foreign Key
         public Employee Foreman { get; set; } //Navigation Property
 
-        [Required]
+        [Required(ErrorMessage = "You must select a Member")]
         [ForeignKey("EmployeeID")]
         public int CrewMember1ID { get; set; } //Foreign Key
         public Employee CrewMember1 { get; set; } //Navigation Property
 
-        [Required]
+        [Required(ErrorMessage = "You must select a Member")]
         [ForeignKey("EmployeeID")]
         public int CrewMember2ID { get; set; } //Foreign Key
         public Employee CrewMember2 { get; set; } //Navigation Property

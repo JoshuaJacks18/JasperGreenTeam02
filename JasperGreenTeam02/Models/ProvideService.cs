@@ -21,15 +21,15 @@ namespace JasperGreenTeam02.Models
     public class ProvideService
     {
         public int ServiceID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Crew")]
         public int CrewID { get; set; } //Foreign Key
-        [Required]
+        [Required(ErrorMessage = "You must provide a Customer")]
         public int CustomerID { get; set; } //Foreign Key
-        [Required]
+        [Required(ErrorMessage = "You must provide a Property")]
         public int PropertyID { get; set; } //Foreign Key
-        [Required]
+        [Required(ErrorMessage = "You must provide a Service Date")]
         public DateTime ServiceDate { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Service Fee")]
         public double ServiceFee { get; set; }
         public int? PaymentID { get; set; } //Foreign Key
 

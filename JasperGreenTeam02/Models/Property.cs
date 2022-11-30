@@ -21,18 +21,18 @@ namespace JasperGreenTeam02.Models
     public class Property
     {
         public int PropertyID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Customer")]
         public int CustomerID { get; set; } //Foreign Key
         public Customer Customer { get; set; } //Navigation Property
-        [Required]
+        [Required(ErrorMessage = "You must provide an Address")]
         public string PropertyAddress { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a City")]
         public string PropertyCity { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a State")]
         public string PropertyState { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Zip Code")]
         public string PropertyZIP { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Service Fee")]
         public double ServiceFee { get; set; }
 
         public ICollection<ProvideService> ProvidedServices { get; set; }

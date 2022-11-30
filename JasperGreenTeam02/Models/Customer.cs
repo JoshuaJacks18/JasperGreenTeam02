@@ -22,17 +22,19 @@ namespace JasperGreenTeam02.Models
     {
         [Required]
         public int CustomerID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Name")]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Billing Address")]
         public string BillingAddress { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a City")]
         public string BillingCity { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a State")]
         public string BillingState { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Zip Code")]
+        [RegularExpression(@"([0-9]{5})$", ErrorMessage = "Zipcode must only have 5 nermerical characters")]
         public string BillingZIP { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Phone Number")]
+        [RegularExpression(@"^\(([0-9]{3})\)[ ]([0-9]{3})[-]([0-9]{4})$", ErrorMessage = "Phone Number must be formated as (999) 999-9999")]
         public string CustomerPhone { get; set; }
 
         public ICollection<ProvideService> ProvidedServices { get; set; }
