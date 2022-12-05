@@ -31,10 +31,10 @@ namespace JasperGreenTeam02.Models
         [Required(ErrorMessage = "You must provide a State")]
         public string BillingState { get; set; }
         [Required(ErrorMessage = "You must provide a Zip Code")]
-        [RegularExpression(@"([0-9]{5})$", ErrorMessage = "Zipcode must only have 5 nermerical characters")]
+        [RegularExpression(@"([0-9]{5}(?:-[0-9]{4}))?$", ErrorMessage = "Zipcode must be formated as 99999 or 99999-9999")] //Creates a requirment for formating
         public string BillingZIP { get; set; }
         [Required(ErrorMessage = "You must provide a Phone Number")]
-        [RegularExpression(@"^\(([0-9]{3})\)[ ]([0-9]{3})[-]([0-9]{4})$", ErrorMessage = "Phone Number must be formated as (999) 999-9999")]
+        [RegularExpression(@"^\(([0-9]{3})\)[ ]([0-9]{3})[-]([0-9]{4})$", ErrorMessage = "Phone Number must be formated as (999) 999-9999")] //Creates a requirment for formating
         public string CustomerPhone { get; set; }
 
         public ICollection<ProvideService> ProvidedServices { get; set; }

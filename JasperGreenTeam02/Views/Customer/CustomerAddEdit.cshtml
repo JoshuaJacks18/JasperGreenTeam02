@@ -42,13 +42,17 @@
         </div>
         <div class="row form-group">
             <label asp-for="BillingState" class="col-sm-3">State</label>
-            <div class="col">
-                <input asp-for="BillingState" class="form-control">
-            </div>
-            <div class="col-sm-6">
-                <span asp-validation-for="BillingState" class="text-danger"></span> @*puts validation message at side of the respective field*@
-            </div>
+            <select asp-for="BillingState" class="form-control col-sm-3">
+                <option value="">Select a state...</option>
+            @foreach (String s in ViewBag.States)
+            {
+                <option value="s">@s</option>
+            }
+        </select>
+        <div class="col-sm-6">
+            <span asp-validation-for="BillingState" class="text-danger"></span> @*puts validation message at side of the respective field*@
         </div>
+    </div>
         <div class="row form-group">
             <label asp-for="BillingZIP" class="col-sm-3">Postal Code</label>
             <div class="col">

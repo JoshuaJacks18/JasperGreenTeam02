@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JasperGreenTeam02.Migrations
 {
     [DbContext(typeof(JasperGreenContext))]
-    [Migration("20221205172447_initial")]
+    [Migration("20221205174446_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -211,7 +211,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 1,
                             EmployeeFirstName = "Elliot",
                             EmployeeLastName = "Matterbaby",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(8297),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(6746),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -221,7 +221,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 2,
                             EmployeeFirstName = "Edward",
                             EmployeeLastName = "Linus",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(8950),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7332),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -231,7 +231,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 3,
                             EmployeeFirstName = "Emmy",
                             EmployeeLastName = "Elders",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(8977),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7360),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -241,7 +241,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 4,
                             EmployeeFirstName = "Josh",
                             EmployeeLastName = "Jacks",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(8980),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7364),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -251,7 +251,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 5,
                             EmployeeFirstName = "John",
                             EmployeeLastName = "Baptist",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(8983),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7367),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -261,7 +261,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 6,
                             EmployeeFirstName = "Jimmy",
                             EmployeeLastName = "Neutron",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(8987),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7370),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -271,7 +271,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 7,
                             EmployeeFirstName = "Timmy",
                             EmployeeLastName = "Turner",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(8990),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7374),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -281,7 +281,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 8,
                             EmployeeFirstName = "Shawn",
                             EmployeeLastName = "Young",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(8993),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7377),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -291,7 +291,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 9,
                             EmployeeFirstName = "Sean",
                             EmployeeLastName = "Price",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(8996),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7381),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -301,7 +301,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 10,
                             EmployeeFirstName = "Tyler",
                             EmployeeLastName = "Thames",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(9000),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7384),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -311,7 +311,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 11,
                             EmployeeFirstName = "Spencer",
                             EmployeeLastName = "Simons",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(9003),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7387),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -321,7 +321,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 12,
                             EmployeeFirstName = "Greg",
                             EmployeeLastName = "Williams",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(9006),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7390),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -331,7 +331,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 13,
                             EmployeeFirstName = "Dameon",
                             EmployeeLastName = "Walker",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(9009),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7394),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -341,7 +341,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 14,
                             EmployeeFirstName = "James",
                             EmployeeLastName = "Thomas",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(9013),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7397),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -351,7 +351,7 @@ namespace JasperGreenTeam02.Migrations
                             EmployeeID = 15,
                             EmployeeFirstName = "Patrick",
                             EmployeeLastName = "Star",
-                            HireDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(9017),
+                            HireDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(7400),
                             HourlyRate = 10.5,
                             JobTitle = "Worker",
                             SSN = 123726532
@@ -386,35 +386,35 @@ namespace JasperGreenTeam02.Migrations
                             PaymentID = 1,
                             CustomerID = 1,
                             PaymentAmount = 200.0,
-                            PaymentDate = new DateTime(2022, 12, 5, 11, 24, 47, 42, DateTimeKind.Local).AddTicks(1940)
+                            PaymentDate = new DateTime(2022, 12, 5, 11, 44, 46, 117, DateTimeKind.Local).AddTicks(100)
                         },
                         new
                         {
                             PaymentID = 2,
                             CustomerID = 2,
                             PaymentAmount = 200.0,
-                            PaymentDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(6368)
+                            PaymentDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(4792)
                         },
                         new
                         {
                             PaymentID = 3,
                             CustomerID = 3,
                             PaymentAmount = 200.0,
-                            PaymentDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(6418)
+                            PaymentDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(4840)
                         },
                         new
                         {
                             PaymentID = 4,
                             CustomerID = 4,
                             PaymentAmount = 200.0,
-                            PaymentDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(6423)
+                            PaymentDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(4845)
                         },
                         new
                         {
                             PaymentID = 5,
                             CustomerID = 5,
                             PaymentAmount = 200.0,
-                            PaymentDate = new DateTime(2022, 12, 5, 11, 24, 47, 44, DateTimeKind.Local).AddTicks(6426)
+                            PaymentDate = new DateTime(2022, 12, 5, 11, 44, 46, 119, DateTimeKind.Local).AddTicks(4848)
                         });
                 });
 
