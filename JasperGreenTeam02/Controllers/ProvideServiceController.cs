@@ -48,7 +48,11 @@ namespace SportsPro.Controllers
                 .ToList();
             return View(providedServices);
         }
-
+        /// <summary>
+        /// Returns a filtered view for a specified Customer.
+        /// </summary>
+        /// <param name="cust"></param>
+        /// <returns></returns>
         public IActionResult ListByCustomer(Customer cust)
         {
             if (cust.CustomerID == 0)
@@ -72,7 +76,11 @@ namespace SportsPro.Controllers
                 .ToList();
             return View(providedServices);
         }
-
+        /// <summary>
+        /// Returns a filtered view for a specified Property.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <returns></returns>
         public IActionResult ListByProperty(Property property)
         {
             if (property.PropertyID == 0)
@@ -96,6 +104,11 @@ namespace SportsPro.Controllers
                 .ToList();
             return View(providedServices);
         }
+        /// <summary>
+        /// Returns a filtered view for a specified Crew.
+        /// </summary>
+        /// <param name="crew"></param>
+        /// <returns></returns>
         public IActionResult ListByCrew(Crew crew)
         {
             if (crew.CrewID == 0)
@@ -119,6 +132,10 @@ namespace SportsPro.Controllers
                 .ToList();
             return View(providedServices);
         }
+        /// <summary>
+        /// This is a Method that determines what was the last saved view and will return it after an Add/Edit/Delete of a customer/property/crew
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Return()
         {
             if (HttpContext.Session.Get("CrewID") != null){
@@ -137,10 +154,14 @@ namespace SportsPro.Controllers
 
 
 
-
-            [HttpGet]
+        /// <summary>
+        /// Provides a view to select a Customer to filter by.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
         public IActionResult GetCustomer()
         {
+            //Resets Saved Session
             HttpContext.Session.Remove("CustID");
             HttpContext.Session.Remove("PropID");
             HttpContext.Session.Remove("CrewID");
@@ -151,11 +172,14 @@ namespace SportsPro.Controllers
 
             return View(new Customer());
         }
-
+        /// <summary>
+        /// Provides a view to select a Crew to filter by.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetCrew()
         {
-            //HttpContext.Session.SetString("CustomerName", "name");
+            //Resets Saved Session
             HttpContext.Session.Remove("CustID");
             HttpContext.Session.Remove("PropID");
             HttpContext.Session.Remove("CrewID");
@@ -166,12 +190,15 @@ namespace SportsPro.Controllers
 
             return View(new Crew());
         }
-
+        /// <summary>
+        /// Provides a view to select a Property to filter by.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetProperty()
         {
-            //HttpContext.Session.SetString("CustomerName", "name");
-            HttpContext.Session.Remove("CustID");
+            //Resets Saved Session
+            HttpContext.Session.Remove("CustID"); 
             HttpContext.Session.Remove("PropID");
             HttpContext.Session.Remove("CrewID");
 
