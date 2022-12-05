@@ -1,0 +1,30 @@
+﻿@model Property
+@using Microsoft.AspNetCore.Http
+@{
+    string title = "Property";
+    ViewBag.Title = title;
+    var cust = new Property();
+}
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<h1>@ViewBag.Title</h1>
+
+
+
+    <form asp-action="ListByProperty" method="post">
+
+     <div class="form-group">
+            <select asp-for="PropertyID" class="form-control">
+            @foreach (Property p in ViewBag.Properties)
+            {
+                <option value="@p.PropertyID">@p.PropertyAddress</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Select</button>
+</form>

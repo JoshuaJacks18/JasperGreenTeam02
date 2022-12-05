@@ -1,0 +1,30 @@
+﻿@model Customer
+@using Microsoft.AspNetCore.Http
+@{
+    string title = "Customer";
+    ViewBag.Title = title;
+    var cust = new Customer();
+}
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<h1>@ViewBag.Title</h1>
+
+
+
+<form asp-action="ListByCustomer" method="post">
+
+     <div class="form-group">
+            <select asp-for="CustomerID" class="form-control">
+            @foreach (Customer c in ViewBag.Customers)
+            {
+                <option value="@c.CustomerID">@c.Name</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Select</button>
+</form>

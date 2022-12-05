@@ -22,17 +22,17 @@ namespace JasperGreenTeam02.Models
     public class Employee
     {
         public int EmployeeID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a First Name")]
         public string EmployeeFirstName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Last Name")]
         public string EmployeeLastName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a SSN")]
         public int SSN { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Job Title")]
         public string JobTitle { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide a Hire Date")]
         public DateTime HireDate { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must provide an Hourly Rate")]
         public double HourlyRate { get; set; }
         public string FullName => EmployeeFirstName + " " + EmployeeLastName;   // read-only property
 

@@ -18,8 +18,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using JasperGreenTeam02.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
+
 
 namespace SportsPro.Controllers
 {
@@ -34,6 +37,9 @@ namespace SportsPro.Controllers
         [Route("[controller]s")]
         public IActionResult ProvideServiceList()
         {
+            HttpContext.Session.Remove("CustID");
+            HttpContext.Session.Remove("PropID");
+            HttpContext.Session.Remove("CrewID");
             List<ProvideService> providedServices = context.ProvideServices
                 .Include(e => e.Crew)
                 .Include(e => e.Customer)
@@ -42,6 +48,141 @@ namespace SportsPro.Controllers
                 .ToList();
             return View(providedServices);
         }
+
+        public IActionResult ListByCustomer(Customer cust)
+        {
+            if (cust.CustomerID == 0)
+            {
+                Customer placeHolder = context.Customers.Find(HttpContext.Session.GetInt32("CustID"));
+                ViewBag.Filter = placeHolder.Name;
+            }
+            else
+            {
+                Customer placeHolder = context.Customers.Find(cust.CustomerID);
+                HttpContext.Session.SetInt32("CustID", cust.CustomerID);
+                ViewBag.Filter = placeHolder.Name;
+            }
+
+
+            List<ProvideService> providedServices = context.ProvideServices
+                .Include(e => e.Crew)
+                .Include(e => e.Customer)
+                .Include(e => e.Property)
+                .OrderBy(e => e.ServiceID)
+                .ToList();
+            return View(providedServices);
+        }
+
+        public IActionResult ListByProperty(Property property)
+        {
+            if (property.PropertyID == 0)
+            {
+                Property placeHolder = context.Properties.Find(HttpContext.Session.GetInt32("PropID"));
+                ViewBag.Filter = placeHolder.PropertyAddress;
+            }
+            else
+            {
+                Property placeHolder = context.Properties.Find(property.PropertyID);
+                HttpContext.Session.SetInt32("PropID", property.PropertyID);
+                ViewBag.Filter = placeHolder.PropertyAddress;
+            }
+
+
+            List<ProvideService> providedServices = context.ProvideServices
+                .Include(e => e.Crew)
+                .Include(e => e.Customer)
+                .Include(e => e.Property)
+                .OrderBy(e => e.ServiceID)
+                .ToList();
+            return View(providedServices);
+        }
+        public IActionResult ListByCrew(Crew crew)
+        {
+            if (crew.CrewID == 0)
+            {
+                Crew placeHolder = context.Crews.Find(HttpContext.Session.GetInt32("CrewID"));
+                ViewBag.Filter = placeHolder.CrewID;
+            }
+            else
+            {
+                Crew placeHolder = context.Crews.Find(crew.CrewID);
+                HttpContext.Session.SetInt32("CrewID", crew.CrewID);
+                ViewBag.Filter = placeHolder.CrewID;
+            }
+
+
+            List<ProvideService> providedServices = context.ProvideServices
+                .Include(e => e.Crew)
+                .Include(e => e.Customer)
+                .Include(e => e.Property)
+                .OrderBy(e => e.ServiceID)
+                .ToList();
+            return View(providedServices);
+        }
+        public IActionResult Return()
+        {
+            if (HttpContext.Session.Get("CrewID") != null){
+                return RedirectToAction("ListByCrew");
+            }
+            if (HttpContext.Session.Get("PropID") != null)
+            {
+                return RedirectToAction("ListByProperty");
+            }
+            if (HttpContext.Session.Get("CustID") != null)
+            {
+                return RedirectToAction("ListByCustomer");
+            }
+            return RedirectToAction("ProvideServiceList");
+        }
+
+
+
+
+            [HttpGet]
+        public IActionResult GetCustomer()
+        {
+            HttpContext.Session.Remove("CustID");
+            HttpContext.Session.Remove("PropID");
+            HttpContext.Session.Remove("CrewID");
+
+            List<Customer> customers = context.Customers.OrderBy(t => t.Name).ToList();
+
+            ViewBag.Customers = customers;
+
+            return View(new Customer());
+        }
+
+        [HttpGet]
+        public IActionResult GetCrew()
+        {
+            //HttpContext.Session.SetString("CustomerName", "name");
+            HttpContext.Session.Remove("CustID");
+            HttpContext.Session.Remove("PropID");
+            HttpContext.Session.Remove("CrewID");
+
+            List<Crew> crews = context.Crews.OrderBy(t => t.CrewID).ToList();
+
+            ViewBag.Crews = crews;
+
+            return View(new Crew());
+        }
+
+        [HttpGet]
+        public IActionResult GetProperty()
+        {
+            //HttpContext.Session.SetString("CustomerName", "name");
+            HttpContext.Session.Remove("CustID");
+            HttpContext.Session.Remove("PropID");
+            HttpContext.Session.Remove("CrewID");
+
+            List<Property> properties = context.Properties.OrderBy(t => t.PropertyID).ToList();
+
+            ViewBag.Properties = properties;
+
+            return View(new Property());
+        }
+
+        
 
         [HttpGet]
         public IActionResult Add()
@@ -88,7 +229,7 @@ namespace SportsPro.Controllers
                     context.ProvideServices.Update(service);
                 }
                 context.SaveChanges();
-                return RedirectToAction("ProvideServiceList");
+                return RedirectToAction("Return");
             }
             else
             {
@@ -115,7 +256,7 @@ namespace SportsPro.Controllers
             {
                 TempData["message"] = "There are one or more relationships with Employee or ProvideService that prevent deletion.";
             }
-            return RedirectToAction("ProvideServiceList");
+            return RedirectToAction("Return");
         }
     }
 }
