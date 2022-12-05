@@ -42,6 +42,7 @@ namespace SportsPro.Controllers
         public IActionResult Add()
         {
             ViewBag.Action = "Add";
+            ViewBag.States = states;
 
             return View("CustomerAddEdit", new Customer());
         }
@@ -50,6 +51,7 @@ namespace SportsPro.Controllers
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "Edit";
+            ViewBag.States = states;
 
             var customer = context.Customers.Find(id);
             return View("CustomerAddEdit", customer);
@@ -82,6 +84,7 @@ namespace SportsPro.Controllers
             }
             else
             {
+                ViewBag.States = states;
                 return View("AddEdit", customer); //There was a validation error and is sent back to the edit page
             }
         }
@@ -107,5 +110,12 @@ namespace SportsPro.Controllers
             }
             return RedirectToAction("CustomerList");
         }
+
+        public List<string> states = new List<string>()
+        {
+            "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY",
+            "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI",
+            "SC", "SC", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+        };
     }
 }

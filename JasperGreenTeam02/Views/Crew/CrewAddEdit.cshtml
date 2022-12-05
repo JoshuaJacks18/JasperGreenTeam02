@@ -1,7 +1,8 @@
-﻿@model Crew
+﻿@using JasperGreenTeam02.ViewModels
+@model CrewViewModel
 @{
     string title = ViewBag.Action + " Crew";
-    ViewBag.Title = title;
+    ViewData["title"] = title;
 }
 
 @section scripts {
@@ -9,7 +10,7 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
 
-    <h1>@ViewBag.Title</h1>
+    <h1>@ViewData["title"]</h1>
 
     <form asp-action="Save" method="post">
 
@@ -18,7 +19,7 @@
             <label asp-for="ForemanID">Foreman</label>
             <select asp-for="ForemanID" class="form-control">
                 <option value="">Select an employee...</option>
-            @foreach (Employee e in ViewBag.Employees)
+            @foreach (Employee e in Model.Employees)
             {
                 <option value="@e.EmployeeID">@e.FullName</option>
             }
@@ -35,7 +36,7 @@
             <label asp-for="CrewMember1ID">Crew Member 1</label>
             <select asp-for="CrewMember1ID" class="form-control">
                 <option value="">Select an employee...</option>
-                @foreach (Employee e in ViewBag.Employees)
+                @foreach (Employee e in Model.Employees)
                 {
                     <option value="@e.EmployeeID">@e.FullName</option>
                 }
@@ -51,7 +52,7 @@
             <label asp-for="CrewMember2ID">Crew Member 2</label>
             <select asp-for="CrewMember2ID" class="form-control">
                 <option value="">Select an employee...</option>
-                @foreach (Employee e in ViewBag.Employees)
+                @foreach (Employee e in Model.Employees)
                 {
                     <option value="@e.EmployeeID">@e.FullName</option>
                 }
